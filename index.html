@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Thejus Pradeep - Engineering Student and Software Developer from Kannur, Kerala. Creator of clean, modern, and high-performance software.">
+    <title>Thejus Pradeep | Creative Engineer</title>
+    
+    <!-- Google Fonts: Outfit (Display) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        accent: {
+                            orange: '#FF5722',
+                            red: '#D84315',
+                            dark: '#0F0F11',
+                            card: '#16161A',
+                            border: '#2A2A32',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-accent-dark text-white font-sans overflow-x-hidden selection:bg-accent-orange selection:text-white">
+
+    <!-- Glowing Background Lights -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-accent-orange/10 blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-accent-red/10 blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Header Navigation -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#home" class="font-display font-bold text-2xl tracking-tight text-white flex items-center gap-2 hover:opacity-90 transition-opacity">
+                <span>Thejus</span><span class="text-accent-orange">.dev</span>
+            </a>
+            
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center gap-8 bg-white/[0.03] backdrop-blur-md border border-white/[0.05] rounded-full py-2 px-6">
+                <a href="#home" class="nav-link font-medium text-sm text-gray-400 hover:text-white transition-colors duration-200 py-1" data-section="home">Home</a>
+                <a href="#about" class="nav-link font-medium text-sm text-gray-400 hover:text-white transition-colors duration-200 py-1" data-section="about">About</a>
+                <a href="#skills" class="nav-link font-medium text-sm text-gray-400 hover:text-white transition-colors duration-200 py-1" data-section="skills">Skills</a>
+                <a href="#projects" class="nav-link font-medium text-sm text-gray-400 hover:text-white transition-colors duration-200 py-1" data-section="projects">Projects</a>
+                <a href="#education" class="nav-link font-medium text-sm text-gray-400 hover:text-white transition-colors duration-200 py-1" data-section="education">Education</a>
+            </nav>
+
+            <!-- Navigation Action Button -->
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="btn-pill-white hidden sm:flex items-center gap-3 bg-white text-accent-dark font-medium text-sm pl-6 pr-2 py-2 rounded-full transition-all duration-300 hover:bg-opacity-95 shadow-lg group">
+                    <span>Get in touch</span>
+                    <span class="w-8 h-8 rounded-full bg-accent-orange text-white flex items-center justify-center transition-all duration-300 group-hover:bg-accent-red">
+                        <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-[2px]"></i>
+                    </span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-white/[0.1] bg-white/[0.05] backdrop-blur-md text-white focus:outline-none" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars-staggered text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="fixed top-[88px] left-4 right-4 bg-accent-dark/95 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-6 hidden flex-col gap-5 shadow-2xl transition-all duration-300 opacity-0 transform -translate-y-4">
+            <a href="#home" class="mobile-nav-link text-lg font-medium text-gray-400 py-1 border-b border-white/[0.05]" data-section="home">Home</a>
+            <a href="#about" class="mobile-nav-link text-lg font-medium text-gray-400 py-1 border-b border-white/[0.05]" data-section="about">About</a>
+            <a href="#skills" class="mobile-nav-link text-lg font-medium text-gray-400 py-1 border-b border-white/[0.05]" data-section="skills">Skills</a>
+            <a href="#projects" class="mobile-nav-link text-lg font-medium text-gray-400 py-1 border-b border-white/[0.05]" data-section="projects">Projects</a>
+            <a href="#education" class="mobile-nav-link text-lg font-medium text-gray-400 py-1 border-b border-white/[0.05]" data-section="education">Education</a>
+            <a href="#contact" class="mobile-nav-link text-lg font-medium text-accent-orange py-1" data-section="contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full">
+
+        <!-- HERO SECTION (Based exactly on reference styling with rounded card base) -->
+        <section id="home" class="min-h-screen pt-28 md:pt-32 pb-4 px-4 md:px-8 relative overflow-hidden flex flex-col justify-end">
+            <!-- Hero Gradient Card Base -->
+            <div class="hero-card max-w-7xl mx-auto w-full rounded-[40px] md:rounded-[60px] p-8 md:p-16 relative overflow-hidden flex flex-col justify-between min-h-[80vh] md:min-h-[85vh]">
+                
+                <!-- Studio Light Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-accent-red via-[#E64A19] to-[#FF7043] z-0"></div>
+                
+                <!-- Floating Graphic Circles for Ambient Glow inside Card -->
+                <div class="absolute top-[20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#FF8A65]/35 blur-[80px] pointer-events-none z-0"></div>
+                
+                <!-- Silhouette Graphic Asset (Generated profile) -->
+                <div class="absolute inset-x-0 bottom-0 top-[10%] flex justify-center items-end z-10 pointer-events-none">
+                    <img src="assets/hero_silhouette.png" alt="Silhouette Portrait" class="h-[90%] md:h-[105%] max-h-[680px] object-contain opacity-85 select-none transform hover:scale-[1.02] transition-transform duration-700">
+                </div>
+                
+                <!-- Top Row (Header Text and Silhouette Backdrop Glow) -->
+                <div class="relative z-20 flex flex-col lg:flex-row lg:items-start lg:justify-between w-full gap-6">
+                    <!-- Left bold display typography -->
+                    <div class="flex flex-col select-none">
+                        <span class="font-sans font-medium text-sm md:text-base tracking-widest text-white/80 uppercase mb-3">Hey, I'm a</span>
+                        <h1 class="font-display font-extrabold text-[54px] sm:text-[75px] md:text-[98px] lg:text-[108px] leading-[0.88] tracking-tighter text-white">
+                            Creative<br>Engineer
+                        </h1>
+                    </div>
+                    
+                    <!-- Right text box (Premium micro copy) -->
+                    <div class="lg:max-w-xs xl:max-w-sm mt-8 lg:mt-4 text-white/95">
+                        <p class="font-display font-semibold text-lg md:text-xl leading-snug mb-3">Great engineering should feel invisible.</p>
+                        <p class="font-sans text-sm md:text-base text-white/85 leading-relaxed font-light">
+                            From elegant system architectures to clean interactive web apps, I build software that connects and performs.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row (Numbers & Competencies matching reference style) -->
+                <div class="relative z-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 mt-20 md:mt-0 pt-8 border-t border-white/10 w-full">
+                    <div class="flex flex-col">
+                        <span class="font-display font-medium text-xs text-white/50 tracking-wider">#01</span>
+                        <span class="font-display font-semibold text-base text-white mt-1">Full Stack Development</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-medium text-xs text-white/50 tracking-wider">#02</span>
+                        <span class="font-display font-semibold text-base text-white mt-1">Backend Architectures</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-medium text-xs text-white/50 tracking-wider">#03</span>
+                        <span class="font-display font-semibold text-base text-white mt-1">UI/UX & Web Design</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-medium text-xs text-white/50 tracking-wider">#04</span>
+                        <span class="font-display font-semibold text-base text-white mt-1">Problem Solving & CS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLIENTS / TECH ROW (Clean styling row from reference image) -->
+        <section class="py-12 md:py-16 px-4 md:px-8 border-b border-white/[0.03]">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest leading-normal max-w-[200px] select-none">
+                    Technologies & Frameworks I Excel In
+                </span>
+                
+                <!-- Tech Brand Logos Grid (Grayscale-White high-fidelity style) -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-12 gap-y-6 md:gap-x-16 items-center flex-1 justify-end max-w-4xl">
+                    <div class="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300 select-none group">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs group-hover:border-accent-orange transition-all duration-300">
+                            <i class="fa-brands fa-react group-hover:text-accent-orange transition-colors"></i>
+                        </div>
+                        <span class="font-display font-bold text-lg tracking-tight">React JS</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300 select-none group">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs group-hover:border-accent-orange transition-all duration-300">
+                            <i class="fa-brands fa-node-js group-hover:text-accent-orange transition-colors"></i>
+                        </div>
+                        <span class="font-display font-bold text-lg tracking-tight">Node Blox</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300 select-none group">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs group-hover:border-accent-orange transition-all duration-300">
+                            <i class="fa-brands fa-python group-hover:text-accent-orange transition-colors"></i>
+                        </div>
+                        <span class="font-display font-bold text-lg tracking-tight">Python Core</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300 select-none group">
+                        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs group-hover:border-accent-orange transition-all duration-300">
+                            <i class="fa-brands fa-git-alt group-hover:text-accent-orange transition-colors"></i>
+                        </div>
+                        <span class="font-display font-bold text-lg tracking-tight">Git Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION ("Behind the Designs" Layout style) -->
+        <section id="about" class="py-24 md:py-32 px-4 md:px-8 relative z-10">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+                
+                <!-- Left Title Grid Column -->
+                <div class="lg:col-span-6 flex flex-col">
+                    <span class="text-accent-orange font-semibold font-display uppercase tracking-widest text-sm mb-4">Behind the Systems</span>
+                    <h2 class="font-display font-extrabold text-4xl sm:text-5xl md:text-[56px] leading-[1.05] tracking-tighter text-white">
+                        Shaping Software<br>That Makes Life Simpler
+                    </h2>
+                </div>
+                
+                <!-- Right Bio & Description Column -->
+                <div class="lg:col-span-6 flex flex-col gap-6 text-gray-300">
+                    <p class="font-display font-medium text-xl md:text-2xl text-white leading-relaxed">
+                        I am an engineering student and developer focused on building clean, intuitive, and high-performance applications that solve real-world problems.
+                    </p>
+                    <p class="font-sans text-sm md:text-base leading-relaxed text-gray-400 font-light">
+                        Currently pursuing my Bachelor's degree at **Vimal Jyothi Engineering College, Chemperi**, I combine academic rigorous foundations with modern industry-standard frameworks. Based in **Kannur, Kerala, India**, I thrive on building efficient systems, researching computer architectures, and creating aesthetic frontends.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-white/[0.05] mt-4">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">Let's Build Something</span>
+                            <span class="font-display font-semibold text-lg text-white mt-1">Meaningful Together</span>
+                        </div>
+                        
+                        <a href="#contact" class="btn-pill-orange inline-flex items-center gap-3 bg-accent-orange text-white font-medium text-sm pl-6 pr-2 py-2 rounded-full transition-all duration-300 hover:bg-accent-red shadow-lg group self-start sm:self-auto">
+                            <span>Get in touch</span>
+                            <span class="w-8 h-8 rounded-full bg-white text-accent-dark flex items-center justify-center transition-all duration-300 group-hover:bg-opacity-95">
+                                <i class="fa-solid fa-arrow-right text-xs text-accent-orange transition-transform duration-300 group-hover:translate-x-[2px]"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS / TECHNOLOGIES SECTION -->
+        <section id="skills" class="py-20 md:py-28 px-4 md:px-8 border-t border-white/[0.03] relative overflow-hidden bg-accent-card/20">
+            <!-- Glass ambient glow -->
+            <div class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-accent-orange/5 blur-[120px] pointer-events-none z-0"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="flex flex-col items-center text-center mb-16 select-none">
+                    <span class="text-accent-orange font-semibold font-display uppercase tracking-widest text-sm mb-3">Core Expertise</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white">Skills & Toolkit</h2>
+                    <p class="text-gray-400 font-light mt-3 max-w-lg text-sm md:text-base">The programming languages, frameworks, and specialized systems engineering tools I leverage to engineer solutions.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Column 1: Core Languages -->
+                    <div class="bg-accent-card border border-white/[0.05] rounded-3xl p-8 hover:border-accent-orange/30 hover:shadow-xl hover:shadow-accent-orange/[0.02] transition-all duration-300 flex flex-col gap-6">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 rounded-2xl bg-accent-orange/10 text-accent-orange flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-code"></i>
+                            </span>
+                            <div class="flex flex-col">
+                                <h3 class="font-display font-bold text-lg text-white">Core Languages</h3>
+                                <span class="text-xs text-gray-500">Foundation & Systems</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4 mt-2">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">JavaScript / ES6</span>
+                                    <span class="text-accent-orange font-semibold">90%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[90%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Python (Algorithms / AI)</span>
+                                    <span class="text-accent-orange font-semibold">85%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[85%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">C++ (Systems)</span>
+                                    <span class="text-accent-orange font-semibold">75%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[75%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">SQL Database Systems</span>
+                                    <span class="text-accent-orange font-semibold">80%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[80%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Web Frameworks -->
+                    <div class="bg-accent-card border border-white/[0.05] rounded-3xl p-8 hover:border-accent-orange/30 hover:shadow-xl hover:shadow-accent-orange/[0.02] transition-all duration-300 flex flex-col gap-6">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 rounded-2xl bg-accent-orange/10 text-accent-orange flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </span>
+                            <div class="flex flex-col">
+                                <h3 class="font-display font-bold text-lg text-white">Libraries & Frameworks</h3>
+                                <span class="text-xs text-gray-500">App Development</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4 mt-2">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">React.js & Next.js</span>
+                                    <span class="text-accent-orange font-semibold">88%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[88%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Node.js / Express</span>
+                                    <span class="text-accent-orange font-semibold">80%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[80%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Tailwind CSS & SCSS</span>
+                                    <span class="text-accent-orange font-semibold">95%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[95%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Flask (Python Web)</span>
+                                    <span class="text-accent-orange font-semibold">70%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[70%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Professional Dev Tools -->
+                    <div class="bg-accent-card border border-white/[0.05] rounded-3xl p-8 hover:border-accent-orange/30 hover:shadow-xl hover:shadow-accent-orange/[0.02] transition-all duration-300 flex flex-col gap-6">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 rounded-2xl bg-accent-orange/10 text-accent-orange flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </span>
+                            <div class="flex flex-col">
+                                <h3 class="font-display font-bold text-lg text-white">Dev Operations & Tools</h3>
+                                <span class="text-xs text-gray-500">Infrastructure & Styling</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4 mt-2">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Git Systems / CLI</span>
+                                    <span class="text-accent-orange font-semibold">92%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[92%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Docker Containment</span>
+                                    <span class="text-accent-orange font-semibold">65%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[65%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Figma UI Prototype</span>
+                                    <span class="text-accent-orange font-semibold">80%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[80%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-gray-300">Linux / Shell Commands</span>
+                                    <span class="text-accent-orange font-semibold">85%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/[0.05] rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent-orange to-accent-red rounded-full transition-all duration-1000 w-[85%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION (Based exactly on reference cards styling) -->
+        <section id="projects" class="py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 select-none">
+                <div class="flex flex-col">
+                    <span class="text-accent-orange font-semibold font-display uppercase tracking-widest text-sm mb-3">Featured Creations</span>
+                    <h2 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tighter text-white">Case Studies</h2>
+                </div>
+                <p class="text-gray-400 font-light mt-4 md:mt-0 max-w-md text-sm md:text-base leading-relaxed">
+                    A curated selection of core engineering projects showcasing software development, complex problem solving, and interface design.
+                </p>
+            </div>
+
+            <!-- Grayscale Premium Cards Grid (Exactly like the puffer jacket, headphones, and bottle) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                
+                <!-- Project Card 1: Next-Gen Dev Dashboard (Crimson hue on hover) -->
+                <div class="project-card group relative bg-accent-card rounded-[32px] overflow-hidden border border-white/[0.04] transition-all duration-500 hover:shadow-2xl hover:border-accent-orange/20 cursor-pointer flex flex-col h-[500px]">
+                    <div class="absolute inset-0 z-0 overflow-hidden bg-black">
+                        <img src="assets/project_dev.png" alt="Development Dashboard Showcase" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 select-none">
+                        <!-- Custom CSS Color Tint Filter Overlay on hover -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-accent-red/20 opacity-90 group-hover:opacity-95 transition-opacity duration-500"></div>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col justify-between h-full p-8 md:p-10">
+                        <span class="self-start text-xs font-semibold uppercase tracking-widest bg-white/10 text-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                            Development / WebApp
+                        </span>
+                        
+                        <div class="flex flex-col gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-accent-orange transition-colors leading-tight">Next-Gen Developer Analytics Suite</h3>
+                            <p class="text-sm text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-light">
+                                A high-performance real-time telemetry analytics platform dashboard built using React, Tailwind, and Node.js backend.
+                            </p>
+                            
+                            <div class="flex flex-wrap items-center gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">React</span>
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">Node.js</span>
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Neural Interface (Blue sapphire hue on hover) -->
+                <div class="project-card group relative bg-accent-card rounded-[32px] overflow-hidden border border-white/[0.04] transition-all duration-500 hover:shadow-2xl hover:border-blue-500/20 cursor-pointer flex flex-col h-[500px]">
+                    <div class="absolute inset-0 z-0 overflow-hidden bg-black">
+                        <img src="assets/project_ai.png" alt="Neural Network Showcase" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 select-none">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-blue-900/20 opacity-90 group-hover:opacity-95 transition-opacity duration-500"></div>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col justify-between h-full p-8 md:p-10">
+                        <span class="self-start text-xs font-semibold uppercase tracking-widest bg-white/10 text-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                            Machine Learning / Python
+                        </span>
+                        
+                        <div class="flex flex-col gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-blue-400 transition-colors leading-tight">Neural Core Telemetry Network</h3>
+                            <p class="text-sm text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-light">
+                                An abstract predictive analysis engine using modern neural layers to predict computing throughput on cloud clusters.
+                            </p>
+                            
+                            <div class="flex flex-wrap items-center gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">Python</span>
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">PyTorch</span>
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Embedded Smart Systems (Emerald green hue on hover) -->
+                <div class="project-card group relative bg-accent-card rounded-[32px] overflow-hidden border border-white/[0.04] transition-all duration-500 hover:shadow-2xl hover:border-emerald-500/20 cursor-pointer flex flex-col h-[500px]">
+                    <div class="absolute inset-0 z-0 overflow-hidden bg-black">
+                        <img src="assets/project_sys.png" alt="Smart Hardware Showcase" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 select-none">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-emerald-900/20 opacity-90 group-hover:opacity-95 transition-opacity duration-500"></div>
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col justify-between h-full p-8 md:p-10">
+                        <span class="self-start text-xs font-semibold uppercase tracking-widest bg-white/10 text-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                            Embedded Systems / IoT
+                        </span>
+                        
+                        <div class="flex flex-col gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-emerald-400 transition-colors leading-tight">Smart Embedded Hydro-Automation</h3>
+                            <p class="text-sm text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-light">
+                                An IoT microcontroller network designed to measure, regulate, and automate localized resource metrics cleanly.
+                            </p>
+                            
+                            <div class="flex flex-wrap items-center gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">C++</span>
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">ESP32</span>
+                                <span class="text-xs px-2.5 py-1 bg-white/5 rounded-full border border-white/5 text-gray-400 font-mono">MQTT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="py-20 md:py-28 px-4 md:px-8 border-t border-white/[0.03] bg-accent-card/10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col items-center text-center mb-16 select-none">
+                    <span class="text-accent-orange font-semibold font-display uppercase tracking-widest text-sm mb-3">Academic Milestones</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white">Education & Studies</h2>
+                    <p class="text-gray-400 font-light mt-3 max-w-lg text-sm md:text-base">A brief record of my formal educational journey, technical training, and engineering studies.</p>
+                </div>
+
+                <!-- Timeline structure -->
+                <div class="max-w-3xl mx-auto flex flex-col gap-8 relative before:absolute before:left-[17px] before:top-[12px] before:bottom-[12px] before:w-[2px] before:bg-white/[0.05]">
+                    
+                    <!-- Milestone 1: College -->
+                    <div class="relative pl-12 group">
+                        <!-- Timeline Node circle -->
+                        <span class="absolute left-2.5 top-1.5 w-4 h-4 rounded-full border-2 border-accent-orange bg-accent-dark z-10 transition-all duration-300 group-hover:scale-125 group-hover:bg-accent-orange"></span>
+                        
+                        <div class="bg-accent-card border border-white/[0.05] rounded-2xl p-6 md:p-8 transition-all duration-300 group-hover:border-accent-orange/20">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div class="flex flex-col">
+                                    <h3 class="font-display font-bold text-lg text-white group-hover:text-accent-orange transition-colors">Bachelor of Technology (B.Tech)</h3>
+                                    <span class="text-sm text-gray-400">Computer Science & Engineering</span>
+                                </div>
+                                <span class="self-start md:self-auto text-xs px-3 py-1 bg-accent-orange/10 text-accent-orange font-semibold rounded-full select-none">
+                                    2023 - Present
+                                </span>
+                            </div>
+                            
+                            <h4 class="font-display font-semibold text-base text-gray-300 mb-2">Vimal Jyothi Engineering College, Chemperi</h4>
+                            <p class="text-sm font-light text-gray-400 leading-relaxed">
+                                Pursuing deep concepts in Data Structures, Algorithm Design, Computer Organization, Database Management Systems, and Software Engineering. Active participant in technical clubs and hands-on coding bootcamps.
+                            </p>
+                            
+                            <div class="flex items-center gap-2 mt-4 text-xs text-gray-500">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Chemperi, Kannur, Kerala, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2: Schooling -->
+                    <div class="relative pl-12 group">
+                        <span class="absolute left-2.5 top-1.5 w-4 h-4 rounded-full border-2 border-accent-orange/30 bg-accent-dark z-10 transition-all duration-300 group-hover:scale-125 group-hover:border-accent-orange group-hover:bg-accent-orange"></span>
+                        
+                        <div class="bg-accent-card border border-white/[0.05] rounded-2xl p-6 md:p-8 transition-all duration-300 group-hover:border-accent-orange/20">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                                <div class="flex flex-col">
+                                    <h3 class="font-display font-bold text-lg text-white group-hover:text-accent-orange transition-colors">Higher Secondary Education (HSE)</h3>
+                                    <span class="text-sm text-gray-400">Computer Science Stream</span>
+                                </div>
+                                <span class="self-start md:self-auto text-xs px-3 py-1 bg-white/5 text-gray-400 font-semibold rounded-full select-none">
+                                    Completed 2023
+                                </span>
+                            </div>
+                            
+                            <p class="text-sm font-light text-gray-400 leading-relaxed">
+                                Formed a strong mathematical and computational foundation with early exposure to Object-Oriented Programming (C++), Algebra, and Physics.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 md:py-32 px-4 md:px-8 border-t border-white/[0.03]">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+                
+                <!-- Left Details Grid Column -->
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div class="flex flex-col">
+                        <span class="text-accent-orange font-semibold font-display uppercase tracking-widest text-sm mb-4">Get in Touch</span>
+                        <h2 class="font-display font-extrabold text-4xl sm:text-5xl md:text-[56px] leading-[1.05] tracking-tighter text-white mb-6">
+                            Let's Spark a<br>Connection.
+                        </h2>
+                        <p class="text-gray-400 font-light text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+                            Have an exciting project, freelance opportunity, or just want to chat about engineering and technology? Send a message and let's coordinate!
+                        </p>
+                    </div>
+
+                    <!-- Connect Information Cards -->
+                    <div class="flex flex-col gap-6">
+                        <a href="mailto:thejusp15@gmail.com" class="flex items-center gap-4 group">
+                            <span class="w-12 h-12 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-sm text-gray-400 transition-all duration-300 group-hover:border-accent-orange group-hover:text-accent-orange group-hover:scale-105">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Email Me</span>
+                                <span class="font-display font-bold text-base text-white group-hover:text-accent-orange transition-colors">thejusp15@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-sm text-gray-400">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Location</span>
+                                <span class="font-display font-bold text-base text-white">Kannur, Kerala, India</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Media Row -->
+                        <div class="flex items-center gap-4 mt-4 pt-4 border-t border-white/[0.05]">
+                            <a href="https://github.com" target="_blank" class="w-10 h-10 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-gray-400 hover:border-accent-orange hover:text-accent-orange hover:scale-110 transition-all duration-300" aria-label="GitHub">
+                                <i class="fa-brands fa-github text-sm"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-gray-400 hover:border-accent-orange hover:text-accent-orange hover:scale-110 transition-all duration-300" aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin-in text-sm"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="w-10 h-10 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-gray-400 hover:border-accent-orange hover:text-accent-orange hover:scale-110 transition-all duration-300" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-sm"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-gray-400 hover:border-accent-orange hover:text-accent-orange hover:scale-110 transition-all duration-300" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Contact Form Grid Column -->
+                <div class="lg:col-span-7 bg-accent-card border border-white/[0.04] rounded-[36px] p-8 md:p-12 relative overflow-hidden">
+                    <div class="absolute top-[-10%] right-[-10%] w-[30%] h-[30%] rounded-full bg-accent-orange/5 blur-[50px] pointer-events-none"></div>
+
+                    <form id="contact-form" class="flex flex-col gap-6 relative z-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Name Input -->
+                            <div class="form-group flex flex-col relative">
+                                <input type="text" id="form-name" required placeholder=" " class="form-input bg-white/[0.02] border border-white/10 focus:border-accent-orange/40 rounded-2xl px-5 py-4 text-sm text-white placeholder-transparent focus:outline-none focus:ring-1 focus:ring-accent-orange/40 transition-all duration-300">
+                                <label for="form-name" class="form-label absolute left-5 top-4 text-sm text-gray-500 pointer-events-none transition-all duration-300">Full Name</label>
+                            </div>
+
+                            <!-- Email Input -->
+                            <div class="form-group flex flex-col relative">
+                                <input type="email" id="form-email" required placeholder=" " class="form-input bg-white/[0.02] border border-white/10 focus:border-accent-orange/40 rounded-2xl px-5 py-4 text-sm text-white placeholder-transparent focus:outline-none focus:ring-1 focus:ring-accent-orange/40 transition-all duration-300">
+                                <label for="form-email" class="form-label absolute left-5 top-4 text-sm text-gray-500 pointer-events-none transition-all duration-300">Email Address</label>
+                            </div>
+                        </div>
+
+                        <!-- Message TextArea -->
+                        <div class="form-group flex flex-col relative">
+                            <textarea id="form-message" required rows="5" placeholder=" " class="form-input bg-white/[0.02] border border-white/10 focus:border-accent-orange/40 rounded-2xl px-5 py-4 text-sm text-white placeholder-transparent focus:outline-none focus:ring-1 focus:ring-accent-orange/40 transition-all duration-300 resize-none"></textarea>
+                            <label for="form-message" class="form-label absolute left-5 top-4 text-sm text-gray-500 pointer-events-none transition-all duration-300">Your Message</label>
+                        </div>
+
+                        <!-- Submit Button with pill transition and arrow -->
+                        <button type="submit" id="form-submit-btn" class="btn-pill-orange flex items-center justify-between bg-accent-orange hover:bg-accent-red text-white font-medium text-sm pl-8 pr-2 py-2 rounded-full transition-all duration-300 shadow-lg group self-start mt-2">
+                            <span id="btn-text" class="mr-4">Send Message</span>
+                            <span id="btn-icon" class="w-8 h-8 rounded-full bg-white text-accent-dark flex items-center justify-center transition-all duration-300 group-hover:bg-opacity-95">
+                                <i class="fa-solid fa-arrow-right text-xs text-accent-orange transition-all duration-300 group-hover:translate-x-[2px]"></i>
+                            </span>
+                        </button>
+                        
+                        <!-- Success Notification Toast inside card -->
+                        <div id="form-success" class="hidden flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-2xl transition-all duration-500 transform scale-95 opacity-0">
+                            <i class="fa-solid fa-circle-check text-lg"></i>
+                            <span class="text-sm font-medium">Message sent successfully! I will reply shortly.</span>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="py-12 border-t border-white/[0.03] px-4 md:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <span class="font-display font-bold text-lg text-white/50 select-none">
+                Thejus<span class="text-accent-orange/50">.dev</span>
+            </span>
+            
+            <span class="text-xs text-gray-600 font-light select-none">
+                &copy; 2026 Thejus Pradeep. Built with precision and aesthetic dedication.
+            </span>
+            
+            <div class="flex items-center gap-2 text-xs text-gray-500 select-none">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Kannur, Kerala, India</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+/* Custom Premium Styles for Thejus Pradeep Portfolio */
+
+/* Global Reset & Base Variables */
+:root {
+    --color-bg-dark: #0B0B0C;
+    --color-card-dark: #121214;
+    --color-accent-orange: #FF5722;
+    --color-accent-red: #D84315;
+    --color-border-dark: rgba(255, 255, 255, 0.06);
+    --transition-premium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: #252529;
+    border-radius: 99px;
+    border: 2px solid var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-orange);
+}
+
+/* Glassmorphism Header */
+#main-header.scrolled {
+    background: rgba(11, 11, 12, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Nav Links Active State */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--color-accent-orange);
+    transition: var(--transition-premium);
+    transform: translateX(-50%);
+}
+.nav-link.active {
+    color: #ffffff;
+}
+.nav-link.active::after {
+    width: 60%;
+}
+
+/* Dynamic Hero Card Curves (Responsive & Pixel-Perfect) */
+.hero-card {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 25px 50px -12px rgba(255, 87, 34, 0.15);
+}
+
+@media (min-width: 768px) {
+    .hero-card {
+        border-bottom-left-radius: 80px;
+        border-bottom-right-radius: 80px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .hero-card {
+        border-bottom-left-radius: 110px;
+        border-bottom-right-radius: 110px;
+    }
+}
+
+/* Floating Elements & Glows */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Custom Interactive Floating Labels (Contact Form) */
+.form-group .form-input:focus ~ .form-label,
+.form-group .form-input:not(:placeholder-shown) ~ .form-label {
+    transform: translateY(-24px) scale(0.85);
+    color: var(--color-accent-orange);
+    background-color: #121214;
+    padding: 0 6px;
+    left: 14px;
+}
+
+.form-input {
+    transition: var(--transition-premium);
+}
+
+.form-input:focus {
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.25);
+}
+
+/* Premium Hover Transitions for Pill Buttons */
+.btn-pill-white, .btn-pill-orange {
+    transition: var(--transition-premium);
+}
+
+.btn-pill-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.1);
+}
+
+.btn-pill-orange:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(255, 87, 34, 0.2);
+}
+
+/* Premium Project Cards Styling (Mirroring Grayscale and Color Tints) */
+.project-card {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+}
+
+.project-card img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover img {
+    transform: scale(1.04);
+    filter: grayscale(0) contrast(1.1);
+}
+
+/* CSS Scroll Reveal Animation Classes */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Custom Underline Decorators */
+.section-header-line {
+    position: relative;
+    display: inline-block;
+}
+
+.section-header-line::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-accent-orange);
+    border-radius: 99px;
+}
